@@ -790,6 +790,26 @@ class TestProcessSessionCapture:
         assert "/processSession" in js and "X-HTTP-Session-Id" in js
         assert "___data__" in js
 
+    def test_capture_normalizes_relative_and_absolute_stream_urls(self, monkeypatch):
+        factory = _bare_factory()
+        monkeypatch.setattr(factory, "_ensure_ready_locked", lambda: None)
+        monkeypatch.setattr(factory, "_wait_for_input", lambda timeout=20: True)
+        monkeypatch.setattr(factory, "_set_composer_mode", lambda task: None)
+        monkeypatch.setattr(factory, "_get_google_cookies", lambda: {})
+        monkeypatch.setattr(
+            token_factory, "get_current_url", lambda ws: token_factory.GEMINI_APP_URL
+        )
+        monkeypatch.setattr(token_factory, "navigate_to_url", lambda ws, url: None)
+        monkeypatch.setattr(token_factory.time, "sleep", lambda s: None)
+        monkeypatch.setattr(token_factory, "run_js", lambda ws, js: "synthetic")
+        path = "/_/BardChatUi/data/StreamGenerate?rt=c"
+        absolute = "https://gemini.google.com" + path
+        for url in (path, absolute):
+            monkeypatch.setattr(
+                factory, "_poll_capture", lambda: {"url": url, "body": "f.req=synthetic"}
+            )
+            assert factory._capture_locked("hello", None).url == absolute
+
     def test_poll_rejects_process_session_without_open_url(self, monkeypatch):
         factory = _bare_factory()
         monkeypatch.setattr(token_factory.time, "sleep", lambda s: None)
