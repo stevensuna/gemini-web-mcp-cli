@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-21T16:36:16.185742+07:00",
+  "client_pid": 30331,
+  "arguments": {
+    "action": "status"
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"status\": \"running\", \"cid\": \"c_608d29b2ec128c6f\"}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "result": "{\"status\": \"running\", \"cid\": \"c_608d29b2ec128c6f\"}"
+    },
+    "isError": false
+  },
+  "server_alive_after_result": true,
+  "finished": "2026-10-21T16:36:17.299179+07:00"
+}

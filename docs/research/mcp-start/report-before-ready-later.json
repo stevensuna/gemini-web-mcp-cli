@@ -1,0 +1,22 @@
+{
+  "time": "2026-10-21T16:40:35.132636+07:00",
+  "client_pid": 32046,
+  "arguments": {
+    "action": "report"
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "Error executing tool research: Research report is not ready.",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": null,
+    "isError": true
+  },
+  "server_alive_after_result": true,
+  "finished": "2026-10-21T16:40:36.199046+07:00"
+}
