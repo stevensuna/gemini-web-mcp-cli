@@ -91,4 +91,20 @@ server.main()
             await session.send_ping()
             assert (await session.list_tools()).tools
 
+async def test_mcp_start_omitted_model_uses_browser_default(mcp_service):
+    result = json.loads(await server.research("start", query="Metre Convention"))
+    assert result["status"] == "running"
+    mcp_service.create_plan.assert_awaited_once_with("Metre Convention", model=None)
+    mcp_service.start.assert_awaited_once()
 
+
+@pytest.mark.parametrize("method,action,kwargs", [
+    ("start", "start", {"query": "topic"}),
+    ("poll_status", "status", {}),
+    ("report", "report", {}),
+    ("download", "download", {"output_path": "report.md"}),
+])
+async def test_mcp_each_service_step_failure_is_tool_error(mcp_service, method, action, kwargs):
+    getattr(mcp_service, method).side_effect = RuntimeError("synthetic step failure")
+    with pytest.raises(ToolError, match="synthetic step failure"):
+        await server.research(action, **kwargs)

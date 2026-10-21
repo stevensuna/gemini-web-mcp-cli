@@ -105,10 +105,18 @@ def test_plan_fails_before_send_if_dr_cannot_be_enabled(client, monkeypatch, act
     assert not svc.state_path.exists()
 
 
-def test_plan_then_confirmation_uses_pinned_page_once(client, monkeypatch):
+@pytest.mark.parametrize("previous_status", [None, "completed"])
+def test_plan_then_confirmation_uses_pinned_page_once(client, monkeypatch, previous_status):
     svc = ResearchService(client)
+    if previous_status:
+        svc._save({"version": 1, "status": previous_status, "cid": "c_old",
+                   "target_id": "old-target", "report": "Previous completed report"})
 
     def page(state, **kw):
+        assert kw == ({"new": True} if not state.get("cid") else {})
+        assert "report" not in state
+        assert state.get("cid") != "c_old"
+        assert state.get("target_id") != "old-target"
         state["target_id"] = "dedicated-target"
         return "dedicated-ws"
 
@@ -210,3 +218,16 @@ def test_confirmation_rejects_wrong_conversation_before_click(client, monkeypatc
         svc._start()
     js.assert_not_called()
     assert svc._load()["status"] == "planned"
+
+
+@pytest.mark.parametrize("status", ["planning", "starting", "running"])
+def test_new_plan_preserves_active_run_without_send(client, monkeypatch, status):
+    svc = ResearchService(client)
+    state = {"version": 1, "status": status, "cid": "c_active", "target_id": "active"}
+    svc._save(state)
+    page = Mock()
+    monkeypatch.setattr(svc, "_page", page)
+    with pytest.raises(ResearchError, match="already active"):
+        svc._create_plan("replacement", None)
+    page.assert_not_called()
+    assert svc._load() == state
