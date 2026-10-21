@@ -1,0 +1,25 @@
+{
+  "time": "2026-10-21T16:43:21.036271+07:00",
+  "client_pid": 32499,
+  "arguments": {
+    "action": "download",
+    "output_path": "/tmp/round3-dr-download.txt"
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"path\": \"/tmp/round3-dr-download.txt\"}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "result": "{\"path\": \"/tmp/round3-dr-download.txt\"}"
+    },
+    "isError": false
+  },
+  "server_alive_after_result": true,
+  "finished": "2026-10-21T16:43:21.988844+07:00"
+}

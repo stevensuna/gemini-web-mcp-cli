@@ -1,0 +1,42 @@
+{
+  "time": "2026-10-21T16:36:23.189322+07:00",
+  "state": {
+    "status": "running",
+    "cid": "c_608d29b2ec128c6f",
+    "target_id": "AFCE4F366AC91A4860B30808AE4451CC"
+  },
+  "snapshot": {
+    "cid": "c_608d29b2ec128c6f",
+    "plan_ready": false,
+    "report_ready": false,
+    "report": "",
+    "text": " Metre Convention Factual Report Research Websites(1) Identify the exact date, year, and location where the Metre Convention was signed.\n(2) Research the historical context of the treaty, including its primary purpose and the original signatory nations.\n(3) Investigate the three main international organizations established by the convention to oversee global metrology standards.\n(4) Examine the evolution and current status of the convention, including its role in maintaining the International System of Units and its modern membership count.\n(5) Compile the gathered information into a concise factual report highlighting the signing year and key historical details.Analyze ResultsCreate ReportReady in a few mins Edit plan  Start research ",
+    "failed": false
+  },
+  "controls": {
+    "title": "In what year was the Metre Convention signed? Produce a brief factual report. - Google Gemini",
+    "controls": [
+      {
+        "label": "Edit the research plan",
+        "text": " Edit plan ",
+        "disabled": true
+      },
+      {
+        "label": "Start research",
+        "text": " Start research ",
+        "disabled": true
+      },
+      {
+        "label": "Close panel",
+        "text": "",
+        "disabled": false
+      },
+      {
+        "label": "Toggle panel state",
+        "text": "",
+        "disabled": false
+      }
+    ],
+    "researchText": ""
+  }
+}

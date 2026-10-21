@@ -1,0 +1,22 @@
+{
+  "time": "2026-10-21T16:36:34.968543+07:00",
+  "client_pid": 30410,
+  "arguments": {
+    "action": "start"
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "Error executing tool research: query is required for start action",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": null,
+    "isError": true
+  },
+  "server_alive_after_result": true,
+  "finished": "2026-10-21T16:36:35.146798+07:00"
+}

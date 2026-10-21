@@ -1,0 +1,14 @@
+{
+  "bytes": 14682,
+  "sha256": "c1a9c880bd058d282d692a6b8209de9417695b7a36cf17372b9a52ac29c6f3ac",
+  "report_client_pid": 32495,
+  "report_time": "2026-10-21T16:43:19.582546+07:00",
+  "report_finished": "2026-10-21T16:43:20.791662+07:00",
+  "download_client_pid": 32499,
+  "download_time": "2026-10-21T16:43:21.036271+07:00",
+  "download_finished": "2026-10-21T16:43:21.988844+07:00",
+  "report_equals_download": true,
+  "report_equals_dom": true,
+  "report_equals_durable_state": true,
+  "state_mode": "0600"
+}

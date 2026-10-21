@@ -1,0 +1,234 @@
+The Establishment of the International System of Units: A Metrological Examination of Resolution 12 of the 11th CGPM
+
+The International System of Units (SI) was formally established in 1960 by the 11th Conférence Générale des Poids et Mesures (CGPM), which convened in Paris from 11 to 20 October 1960 under the authority of the Bureau International des Poids et Mesures (BIPM). The decisive instrument of its foundation was Resolution 12 of the 11th CGPM, titled Système International d'Unités, which unified and superseded a fragmented landscape of regional, technical, and legacy metric systems—including the centimetre-gram-second (CGS) electrostatic and electromagnetic systems and various gravitational engineering variants—into a single, coherent measurement system for worldwide application.
+
+Resolution 12 established the legal, taxonomic, and operational architecture of modern metrology. Recorded in the official proceedings (Proceedings of the 11th CGPM (1960), 1961, p. 87; DOI: 10.59161/CGPM1960RES12E), the resolution definitively confirmed the system's official designation in the authentic French text, instituted its universal symbol, prescribed the initial prefix scale, and established the dimensional relationships between base, derived, and supplementary units.
+
+Historical Genesis and Diplomatic Precedents
+
+The formal proclamation of the SI in 1960 represented the culmination of an international initiative launched twelve years earlier. At the 9th CGPM in 1948, the conference adopted Resolution 6, which instructed the Comité International des Poids et Mesures (CIPM) to undertake an exhaustive international inquiry across scientific, technical, and pedagogical circles to determine the consensus requirements for a comprehensive, practical system of measurement units suitable for adoption by all signatories to the Metre Convention.
+
+This survey confirmed an urgent worldwide demand for a unified, coherent system capable of bridging classical mechanics, thermodynamics, and electrodynamics. Metrological convergence proceeded through incremental milestones overseen by the CIPM. In 1954, the 10th CGPM adopted Resolution 6, which selected the initial six fundamental base units intended to form the practical framework: length, mass, time, electric current, thermodynamic temperature, and luminous intensity. In 1956, the CIPM passed Resolution 3, which adopted the formal title Système International d'Unités for this framework. In 1958, the CIPM formulated recommendations standardizing the international abbreviation SI and outlining the initial prefix structure to represent decimal multiples and submultiples. Resolution 12 of the 11th CGPM served as the international treaty-level ratification of these technical developments.
+
+Core Mandates of Resolution 12
+
+Resolution 12 articulated four operative decisions that defined the modern metric regime:
+
+First, the conference decreed that the system founded upon the six base units adopted by the 10th CGPM is formally designated as the Système International d'Unités.
+
+Second, it mandated that the official international abbreviation of the system is SI, established to remain uniform and immutable across all languages and scripts, thereby preventing divergent localized acronyms.
+
+Third, the resolution established an initial twelve-tier hierarchy of decimal prefixes spanning twenty-four orders of magnitude, ranging from 
+10
+12
+10
+12
+ to 
+10
+−
+12
+10
+−12
+, to standardize scientific notation across member states.
+
+Fourth, the resolution promulgated the structural classification of units admitted into the system, identifying the six foundational base units, introducing a designated class of supplementary units for angular measure, and providing an initial open-ended register of coherent derived units.
+
+The Six Base Units Established in 1960
+
+The 1960 system was constructed upon six base quantities, which were convention-based, dimensionally independent units of measure.
+
+Physical Quantity	Unit Name (1960)	Symbol
+Length	metre	
+m
+Mass	kilogram	
+kg
+Time	second	
+s
+Electric current	ampere	
+A
+Thermodynamic temperature	degree Kelvin	
+∘
+K
+Luminous intensity	candela	
+cd
+The Prefix Hierarchy of 1960
+
+Resolution 12 codified a balanced array of decimal multipliers to provide an unbroken chain of standard scaling factors.
+
+Multiplying Factor	Scientific Notation	Prefix	Symbol
+
+1000000000000	
+10
+12
+	tera	
+T
+
+1000000000	
+10
+9
+	giga	
+G
+
+1000000	
+10
+6
+	mega	
+M
+
+1000	
+10
+3
+	kilo	
+k
+
+100	
+10
+2
+	hecto	
+h
+
+10	
+10
+1
+	deca	
+da
+
+0.1	
+10
+−1
+	deci	
+d
+
+0.01	
+10
+−2
+	centi	
+c
+
+0.001	
+10
+−3
+	milli	
+m
+
+0.000001	
+10
+−6
+	micro	
+μ
+
+0.000000001	
+10
+−9
+	nano	
+n
+
+0.000000000001	
+10
+−12
+	pico	
+p
+Supplementary and Derived Units
+
+Resolution 12 acknowledged that coherent physical measurement requires unambiguous mathematical derivation from base units. To accommodate angular metrics without prematurely deciding whether they were base or derived quantities, Resolution 12 created a distinct "supplementary units" class consisting of the radian (
+rad
+rad) for plane angles and the steradian (
+sr
+sr) for solid angles. Alongside these, the resolution cataloged a wide range of coherent derived units formed by algebraic products and quotients of base units.
+
+Category	Physical Quantity	Unit Name	Symbol	Coherent Expression
+Supplementary	Plane angle	radian	
+rad	
+m/m
+Supplementary	Solid angle	steradian	
+sr	
+m
+2
+/m
+2
+
+Derived	Frequency	hertz	
+Hz	
+s
+−1
+
+Derived	Force	newton	
+N	
+kg⋅m/s
+2
+
+Derived	Pressure, mechanical stress	newton per square metre	
+N/m
+2
+	
+N/m
+2
+
+Derived	Work, energy, amount of heat	joule	
+J	
+N⋅m
+Derived	Power	watt	
+W	
+J/s
+Derived	Amount of electricity (charge)	coulomb	
+C	
+A⋅s
+Derived	Tension, electric potential	volt	
+V	
+W/A
+Derived	Electric resistance	ohm	
+Ω	
+V/A
+Derived	Capacitance	farad	
+F	
+A⋅s/V
+Derived	Magnetic flux	weber	
+Wb	
+V⋅s
+Derived	Inductance	henry	
+H	
+V⋅s/A
+Derived	Magnetic flux density	tesla	
+T	
+Wb/m
+2
+
+Derived	Luminous flux	lumen	
+lm	
+cd⋅sr
+Derived	Illuminance	lux	
+lx	
+lm/m
+2
+Metrological Evolution and Second-Order Impacts
+
+The adoption of Resolution 12 systematically restructured theoretical and applied physics. Prior to 1960, international electrical measurements were compromised by dual definitions: "practical" units determined via mercury standards and deposition voltmeters, and theoretical "absolute" units derived from electrodynamics. By integrating the ampere into the base tier alongside mechanical units, Resolution 12 eliminated these historical dualities, producing a coherent framework where mechanical, thermal, and electrical power share an invariant, unified unit—the watt.
+
+As metrology advanced, the BIPM and CGPM modified several aspects of the 1960 blueprint to resolve mathematical and dimensional ambiguities. The ambiguous classification of "supplementary units" produced recurring disputes regarding whether plane and solid angles constituted independent base dimensions. In 1995, the 20th CGPM resolved this through Resolution 8, which abrogated the supplementary category and reclassified the radian and steradian as dimensionless derived units possessing the coherent value of unity.
+
+The base unit inventory also underwent critical changes. In 1967, the 13th CGPM altered the thermodynamic temperature unit by replacing "degree Kelvin" (
+∘
+K
+∘
+K) with the single-word designation "kelvin" (
+K
+K), while clarifying the vocabulary of physical quantities by adopting "amount of heat" and "amount of electricity" in place of the older term "quantity," which had developed a narrower metrological definition. To integrate chemical stoichiometry and macroscopic physical chemistry into the system, the 14th CGPM in 1971 adopted the mole (
+mol
+mol) as the seventh SI base unit. Furthermore, the twelve-prefix hierarchy of 1960 was progressively expanded across successive conferences in 1964, 1975, 1991, and 2022 to encompass extreme quantum and astronomical scales spanning from quecto (
+10
+−
+30
+10
+−30
+) to quetta (
+10
+30
+10
+30
+).
+
+Metrological Legacy
+
+Resolution 12 of the 11th CGPM established the conceptual and structural template for modern global measurement science. Although the 1960 framework retained definitions tied to artifact standards—most notably the platinum-iridium International Prototype of the Kilogram—and specific atomic or astronomical phenomena, its modular, coherent architecture allowed the system to adapt without disrupting the physical values of existing standards.
+
+This coherence formed the foundation that allowed the 26th CGPM in 2018 to execute the definitive redefinition of the SI, which took effect in 2019. Under this contemporary paradigm, the base and derived units established in 1960 are no longer anchored to material artifacts or specific physical systems, but are derived entirely from fixed, exact numerical values assigned to seven fundamental constants of nature. The structural framework inaugurated by Resolution 12 in 1960 remains the operational standard governing science, international commerce, industry, and technological development across the globe

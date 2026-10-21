@@ -1,0 +1,192 @@
+[
+  {
+    "path": "__init__.py",
+    "sha256": "b70ff67bc06ef1a3135e2078cea764ec0f307ebdcbaa2ebb9d92ea068210e817",
+    "installed_matches": true
+  },
+  {
+    "path": "api/__init__.py",
+    "sha256": "28e4ca7c14c99e4ef720bb3f4eb1b8fae021efef2fb1ce910d2df5e2fc3cd0bc",
+    "installed_matches": true
+  },
+  {
+    "path": "api/server.py",
+    "sha256": "7f5783956a0f907fdf71fe8be0ed3c654d2a2f5dac9c4348d7ef30c8d9c7a43e",
+    "installed_matches": true
+  },
+  {
+    "path": "cli.py",
+    "sha256": "74de6dc7ea1585063a50b52a2b8c40e621f812d2eba0a54e055ba09278161d7e",
+    "installed_matches": true
+  },
+  {
+    "path": "core/__init__.py",
+    "sha256": "d3bae975675a87633d37a741122bad88d7d9a4241c3c369fa18b5e0f4f16a9aa",
+    "installed_matches": true
+  },
+  {
+    "path": "core/auth.py",
+    "sha256": "f3d366c321427a6a7744f7dbd5bf36959e5cb0d1941db764ed7154801a6cf3e2",
+    "installed_matches": true
+  },
+  {
+    "path": "core/browser_auth.py",
+    "sha256": "f411852a96a0602c1574d9b55700837e122158b1c5468d399409d5ee1995234e",
+    "installed_matches": true
+  },
+  {
+    "path": "core/cdp.py",
+    "sha256": "15d592614bfa7a1d4cbf8dcb523ca837a8cd8ec185b8bde13a915852c7742445",
+    "installed_matches": true
+  },
+  {
+    "path": "core/chrome_manager.py",
+    "sha256": "76a56ab9afcabe3e130eff744bcec5fbf4349a39e4169106f9a2139531e33b90",
+    "installed_matches": true
+  },
+  {
+    "path": "core/client.py",
+    "sha256": "d19b6faf51c3b8b3094c9a523890fef587be0cab86d9c8f0e26fc128fd4c25fd",
+    "installed_matches": true
+  },
+  {
+    "path": "core/constants.py",
+    "sha256": "f1edf340d6f45d437131367ba2688a59ca78167d7003f8f5e4006ad4b9b1e3df",
+    "installed_matches": true
+  },
+  {
+    "path": "core/exceptions.py",
+    "sha256": "b80539ec03068f97e352c5f2c4e3ac34954685f42631a342b001f857e77221a8",
+    "installed_matches": true
+  },
+  {
+    "path": "core/json_io.py",
+    "sha256": "f1fd704fdc9db45e544d325f3b685ba4fd58245d169933ed37975d8d9011a322",
+    "installed_matches": true
+  },
+  {
+    "path": "core/keepalive.py",
+    "sha256": "5ac82d51a8a3a52e750a04c7103e1d11c51f2425b27f3a878d7a48187be7ae15",
+    "installed_matches": true
+  },
+  {
+    "path": "core/locks.py",
+    "sha256": "87b8793c19053f78cbe9defde064a08367958a676052bbf8231e3c8e28ce7f13",
+    "installed_matches": true
+  },
+  {
+    "path": "core/models.py",
+    "sha256": "53609a17593db9a7ff1fad13f7845dd7227c90cdddf9d4225f44aff6f0678ce1",
+    "installed_matches": true
+  },
+  {
+    "path": "core/music_presets.py",
+    "sha256": "256d1c7cf30fe84351b4f12e6b67106a7a6bf329754ed06fac400c66ea7624c0",
+    "installed_matches": true
+  },
+  {
+    "path": "core/parser.py",
+    "sha256": "7329ea02c437bf4ebdfea46435cc92daeaf684776d6faa7f9181f7e5a51b80d9",
+    "installed_matches": true
+  },
+  {
+    "path": "core/probe.py",
+    "sha256": "ef56c1644762e80050588f63c60aafb31a6bbc926a1ad4a20e8cb7daf17366e7",
+    "installed_matches": true
+  },
+  {
+    "path": "core/profiles.py",
+    "sha256": "c608a72d1f6747816afa5100727b0689a9f4521c719f4e4a321b03bd12fdd028",
+    "installed_matches": true
+  },
+  {
+    "path": "core/protojspb.py",
+    "sha256": "bb9b570c86526f2cc23cbdcd45cd87c243908111b15485f5b0be7474bceecb2d",
+    "installed_matches": true
+  },
+  {
+    "path": "core/rpc.py",
+    "sha256": "30cdf032489236eb3f5d1ca66d86f0adf6b0394a2435b13342931947645fc6f6",
+    "installed_matches": true
+  },
+  {
+    "path": "core/setup_shape.py",
+    "sha256": "e09d3dd3ad5a414dd611f53ed459afceb64663374ce6c5355739eb64b41de9d1",
+    "installed_matches": true
+  },
+  {
+    "path": "core/token_factory.py",
+    "sha256": "1f231fe6a212097df4be2999dc86cfca34cc2f8fba6192046bea7eb4a36be8d7",
+    "installed_matches": true
+  },
+  {
+    "path": "core/webchannel.py",
+    "sha256": "0cfb217727530b8955437c4ad13c2ac0f211242e55d7c225522daa05ac401862",
+    "installed_matches": true
+  },
+  {
+    "path": "hack.py",
+    "sha256": "58c1c6d73b907942444ad0175b71a7df1c448a9f7ea22a8cf216bec4c9e9b60b",
+    "installed_matches": true
+  },
+  {
+    "path": "mcp.py",
+    "sha256": "7c9a042a7a6930159da60a7c56a5aa1c43d7a03760e05b5f91883b0d5b086833",
+    "installed_matches": true
+  },
+  {
+    "path": "services/__init__.py",
+    "sha256": "5ab762b19181ded10f3f28b9d3afeba995ca6a3e8e42559c016e0f59152255ff",
+    "installed_matches": true
+  },
+  {
+    "path": "services/chat.py",
+    "sha256": "f0aa4489665f0649a5aaf837f9be863297504145256fc552b4948125f3c4324a",
+    "installed_matches": true
+  },
+  {
+    "path": "services/file.py",
+    "sha256": "19ae316f5391b7e1ea57878305ffc1f21fa76557935364775aacefd967412076",
+    "installed_matches": true
+  },
+  {
+    "path": "services/gems.py",
+    "sha256": "5a62c1f8ff8a114122ad15bfa4ce4c5e0c658f5d6a5ffacae9cd7b6a2a44a80c",
+    "installed_matches": true
+  },
+  {
+    "path": "services/image.py",
+    "sha256": "c91c68bf94bb0fec215ca70016d44d73cf21913fc508180d3be946d60f17f845",
+    "installed_matches": true
+  },
+  {
+    "path": "services/limits.py",
+    "sha256": "9746749dfdf294f9583be37b2dfe7c05c4654a2f7da6b585b949b8452d355192",
+    "installed_matches": true
+  },
+  {
+    "path": "services/music.py",
+    "sha256": "df0656fd6340dee711eff2f6fc3b660c40f53bc34b27bfa4cfab388c9fd71e23",
+    "installed_matches": true
+  },
+  {
+    "path": "services/research.py",
+    "sha256": "1f95a049fd5bd3f719aaa94be19f62bc3e7bf927fb8e5ecb01088c2cab52dcb6",
+    "installed_matches": true
+  },
+  {
+    "path": "services/video.py",
+    "sha256": "98bb729700fca75f2906cc2e51c8496406d8877124329b4ebaa456416e2d4b21",
+    "installed_matches": true
+  },
+  {
+    "path": "setup.py",
+    "sha256": "642c9417d1bee1e05b68db9e16568694d7b79c80793c07853092e93e7cb60f20",
+    "installed_matches": true
+  },
+  {
+    "path": "skill.py",
+    "sha256": "7a87eb792e0d85b83edd14b8fa6fe417fb4eaa4667b8f23508192734e18d36da",
+    "installed_matches": true
+  }
+]

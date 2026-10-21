@@ -1,0 +1,42 @@
+{
+  "time": "2026-10-21T16:37:02.197144+07:00",
+  "state": {
+    "status": "running",
+    "cid": "c_608d29b2ec128c6f",
+    "target_id": "AFCE4F366AC91A4860B30808AE4451CC"
+  },
+  "snapshot": {
+    "cid": "c_608d29b2ec128c6f",
+    "plan_ready": false,
+    "report_ready": false,
+    "report": "",
+    "text": " Metre Convention Factual Report Research Websites(1) Identify the exact date, year, and location where the Metre Convention was signed.\n(2) Research the historical context of the treaty, including its primary purpose and the original signatory nations.\n(3) Investigate the three main international organizations established by the convention to oversee global metrology standards.\n(4) Examine the evolution and current status of the convention, including its role in maintaining the International System of Units and its modern membership count.\n(5) Compile the gathered information into a concise factual report highlighting the signing year and key historical details.Analyze ResultsCreate ReportReady in a few mins Edit plan  Start research ",
+    "failed": false
+  },
+  "controls": {
+    "title": "In what year was the Metre Convention signed? Produce a brief factual report. - Google Gemini",
+    "controls": [
+      {
+        "label": "Edit the research plan",
+        "text": " Edit plan ",
+        "disabled": true
+      },
+      {
+        "label": "Start research",
+        "text": " Start research ",
+        "disabled": true
+      },
+      {
+        "label": "Close panel",
+        "text": "",
+        "disabled": false
+      },
+      {
+        "label": "Toggle panel state",
+        "text": "",
+        "disabled": false
+      }
+    ],
+    "researchText": "Historical Context and Treaty Details\nAnalyzing the origins of the Metre Convention, which was signed on May 20, 1875, in Paris, France. Examining the historical driver\u2014resolving fragmented national measurement systems to foster international trade and scientific collaboration\u2014along with the original 17 signatory nations.\nInstitutional Framework Established\nStructuring the tri-level organizational system set up by the treaty: the General Conference on Weights and Measures as the sovereign decision-making body, the International Committee for Weights and Measures as the executive steering committee, and the International Bureau of Weights and Measures based in S\u00e8vres as the permanent scientific research facility.\nInvestigating Current Status and Figures\nGathering exact, up-to-date data from official international metrology archives regarding modern member states and associate entities, while tracing key milestones like the 1921 scope expansion, the creation of the International System of Units in 1960, and the 2019 fundamental constant redefinition.\nlmd.kerala.gov.in\n2. Meter Convention - lmd@kerala.gov.\nbipm.org\nOfficial texts - BIPM\nusma.org\nMetric Convention of 1875\nstellarepic.com\nThe International Bureau of Weights and Measures - StellarEpic\ndmdm.rs\nMetre Convention - Direkcija za mere i dragocene metale\nacademie-sciences.fr\nMeasuring the world - Keys to understanding | Acad\u00e9mie des sciences\ngovinfo.gov\nThe International Bureau of Weights and Measures 1875-1975\nhmd.hr\nTHE METRE CONVENTION \u2013 THE PATH TOWARDS A UNIVERSAL\naps.org\nUpdating Le Syst\u00e8me International | American Physical Society\nmetrologyasiapacific.com\nThe international frameworks for scientific metrology\nresearchgate.net\nMetre Convention and Evolution of Base Units - ResearchGate\nsimple.wikipedia.org\nMetre Convention - Simple English Wikipedia, the free encyclopedia\nbipm.org\nBIPM update\nbipm.org\nMetre Convention - BIPM\nen.wikipedia.org\nMetre Convention - Wikipedia\nOrigins of Global Standardization\nSynthesizing the historical development of global measurement frameworks reveals how local unit discrepancies prompted international collaboration. The 1875 Metre Convention established a dedicated scientific body to oversee uniform standards worldwide, creating a structured hierarchy led by international conferences and specialized technical committees.\nInstitutional Mandate and Governance\nAnalyzing the founding statutes highlights how early financial caps and population-based contribution models funded shared measurement infrastructure. The organizational framework ensured state representation while maintaining an independent international laboratory focused on maintaining and comparing measurement prototypes.\nVerifying Membership Metrics\nI am now moving to review the complete list of original 1875 signatory nations alongside the expanded present-day membership roster of member states and associate economies to map the treaty's global evolution."
+  }
+}
