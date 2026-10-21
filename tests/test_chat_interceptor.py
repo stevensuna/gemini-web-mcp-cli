@@ -15,7 +15,7 @@ NODE = shutil.which("node")
 pytestmark = pytest.mark.skipif(NODE is None, reason="Node.js required to execute browser hook")
 HARNESS = r"""
 const fs = require('fs');
-const {hook, scenario} = JSON.parse(fs.readFileSync(0, 'utf8'));
+const {hook, scenario, drBody} = JSON.parse(fs.readFileSync(0, 'utf8'));
 global.window = global;
 let sent = [];
 global.fetch = async function(input, init) { sent.push('fetch'); return 'forwarded'; };
@@ -36,7 +36,9 @@ async function attempt(input, init) {
 }
 (async () => {
     let result;
-    if (scenario === 'fetch-string') {
+    if (scenario === 'fetch-dr-request') {
+        result = await attempt(new Request(stream, {method:'POST', body:drBody}));
+    } else if (scenario === 'fetch-string') {
         result = await attempt(stream, {method:'POST', body, headers:{'X-Test':'synthetic'}});
     } else if (scenario === 'fetch-request') {
         const request = new Request(stream, {method:'POST', body, headers:{'X-Test':'original'}});
@@ -72,9 +74,10 @@ async function attempt(input, init) {
 """
 
 
-def run_hook(scenario, hook=XHR_INTERCEPTOR_JS):
+def run_hook(scenario, hook=XHR_INTERCEPTOR_JS, dr_body=None):
     result = subprocess.run(
-        [NODE, "-e", HARNESS], input=json.dumps({"hook": hook, "scenario": scenario}),
+        [NODE, "-e", HARNESS],
+        input=json.dumps({"hook": hook, "scenario": scenario, "drBody": dr_body}),
         text=True, capture_output=True, check=True, timeout=15,
     )
     return json.loads(result.stdout)
@@ -140,3 +143,23 @@ def test_captured_fetch_envelope_is_compatible_with_existing_patcher():
     expected[0][0] = "new\nprompt"
     assert inner == expected
     assert parsed["at"] == ["synthetic"]
+
+
+def test_live_dr_request_shape_is_captured_without_forwarding():
+    fixture = Path(__file__).resolve().parents[1] / (
+        "docs/research/transport/2026-10-21-dr-wire.json"
+    )
+    outer = json.loads(fixture.read_text())["capture2"][0]["payload"]
+    inner = outer[1]
+    assert inner[30] == [4, 16, 19]
+    assert inner[49] == 1
+    body = urlencode({"f.req": json.dumps([None, json.dumps(inner)]), "at": "synthetic"})
+    result = run_hook("fetch-dr-request", dr_body=body)
+    assert result["result"] == "AbortError"
+    assert result["sent"] == []
+    assert result["cap"]["body"] == body
+    patched = GeminiClient._patch_captured_body(result["cap"]["body"], "research topic")
+    actual = json.loads(json.loads(parse_qs(patched)["f.req"][0])[1])
+    expected = json.loads(json.dumps(inner))
+    expected[0][0] = "research topic"
+    assert actual == expected
