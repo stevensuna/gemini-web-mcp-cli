@@ -1,0 +1,141 @@
+{
+  "surface": "fetch POST",
+  "url": "https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate?bl=%3Credacted%3E&f.sid=%3Credacted%3E&hl=%3Credacted%3E&_reqid=%3Credacted%3E&rt=c",
+  "body": {
+    "f.req": {
+      "json": [
+        null,
+        {
+          "json": [
+            [
+              "Reply with exactly CAPTURE_OK.",
+              0,
+              null,
+              null,
+              null,
+              null,
+              0
+            ],
+            [
+              "<redacted:string:2>"
+            ],
+            null,
+            "<redacted:string:1551>",
+            "<redacted:string:32>",
+            null,
+            [
+              1
+            ],
+            1,
+            null,
+            null,
+            1,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            [
+              [
+                0
+              ]
+            ],
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            1,
+            null,
+            null,
+            [
+              4,
+              16,
+              19
+            ],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            [
+              1
+            ],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "<redacted:string:36>",
+            null,
+            [],
+            null,
+            null,
+            null,
+            null,
+            null,
+            0,
+            2,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            1,
+            1,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            1,
+            null,
+            null,
+            null,
+            null,
+            0,
+            null,
+            1
+          ]
+        }
+      ]
+    },
+    "at": "<redacted:string:42>"
+  },
+  "headerNames": [],
+  "status": 200,
+  "responsePrefix": ")]}'\n\n177\n[[\"<redacted>\",null,\"<redacted>\"]]\n<remaining frames omitted>",
+  "headerCaptureNote": "Fetch header names/values were not recorded by this diagnostic hook."
+}
