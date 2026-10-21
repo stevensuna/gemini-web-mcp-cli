@@ -1,0 +1,99 @@
+{
+    "manifest_version": "0.2",
+    "name": "gemini-web-mcp",
+    "display_name": "Gemini Web MCP Server",
+    "version": "0.9.7",
+    "description": "Connect Claude to Google Gemini. Chat, generate images (Nano Banana Pro / Nano Banana 2), videos (Gemini Omni), music (Lyria 3.5), deep research, manage gems, and more.",
+    "long_description": "This extension connects Claude Desktop to Google Gemini via the Model Context Protocol. It provides 10 tools for chat, image/video/music generation, deep research, gems management, canvas, code execution, file uploads, and usage limits.\n\n**Prerequisites:**\n1. Install the package: `pip install gemini-web-mcp-cli` or `uv tool install gemini-web-mcp-cli`\n2. Authenticate: Run `gemcli login` to set up your Google account\n\n**Features:**\n- Chat with Gemini models (3.8 Flash, 3.1 Pro, 4 Argon; thinking levels; Chat/Task)\n- Generate images with Nano Banana Pro / Nano Banana 2 (explicit aspect ratios)\n- Generate videos with Gemini Omni (landscape/portrait, model tiers, templates)\n- Generate music with Lyria 3.5 (length, vocals, genre, templates)\n- Deep research with citations\n- Create and manage Gems (custom personas)\n- Canvas and code execution\n- File uploads (images, PDFs, audio, video)\n- Check usage limits and quotas (credit pool, per-account profiles)",
+    "author": {
+        "name": "Jacob Ben-David",
+        "email": "mail4j@duck.com",
+        "url": "https://github.com/jacob-bd"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jacob-bd/gemini-web-mcp-cli"
+    },
+    "homepage": "https://github.com/jacob-bd/gemini-web-mcp-cli",
+    "documentation": "https://github.com/jacob-bd/gemini-web-mcp-cli#readme",
+    "support": "https://github.com/jacob-bd/gemini-web-mcp-cli/",
+    "server": {
+        "type": "python",
+        "entry_point": "run_server.py",
+        "mcp_config": {
+            "command": "python3",
+            "args": [
+                "${__dirname}/run_server.py"
+            ],
+            "env": {}
+        }
+    },
+    "tools": [
+        {
+            "name": "chat",
+            "description": "Chat with Gemini models"
+        },
+        {
+            "name": "image",
+            "description": "Generate images with Nano Banana Pro / Nano Banana 2 (aspect ratios)"
+        },
+        {
+            "name": "video",
+            "description": "Generate videos with Gemini Omni (orientation, model, templates)"
+        },
+        {
+            "name": "music",
+            "description": "Generate music with Lyria 3.5 (length, vocals, genre, templates)"
+        },
+        {
+            "name": "research",
+            "description": "Deep research with citations"
+        },
+        {
+            "name": "gems",
+            "description": "Create and manage Gems (custom personas)"
+        },
+        {
+            "name": "canvas",
+            "description": "Canvas document editing"
+        },
+        {
+            "name": "code",
+            "description": "Code execution"
+        },
+        {
+            "name": "file",
+            "description": "Upload files to Gemini"
+        },
+        {
+            "name": "limits",
+            "description": "Check usage quotas and limits"
+        }
+    ],
+    "tools_generated": true,
+    "keywords": [
+        "gemini",
+        "google",
+        "imagen",
+        "veo",
+        "lyria",
+        "ai",
+        "chat",
+        "image-generation",
+        "video-generation",
+        "music-generation",
+        "research"
+    ],
+    "license": "MIT",
+    "compatibility": {
+        "claude_desktop": ">=0.10.0",
+        "platforms": [
+            "darwin",
+            "win32",
+            "linux"
+        ],
+        "runtimes": {
+            "python": ">=3.11"
+        }
+    }
+}

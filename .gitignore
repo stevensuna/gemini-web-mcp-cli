@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment
+.env
+.env.local
+
+# Research captures (raw API payloads, may contain session data)
+docs/research/captures/
+
+# Experiments (development PoC scripts, not for public release)
+experiments/
+
+# Ruff cache
+.ruff_cache/
+
+# Auth tokens (never commit)
+auth.json
+.cached_1psidts_*.txt
+/test_*.py
+chrome*.log
+chrome_*.txt
+py_out.txt
+
+# Claude Desktop extension build artifacts
+*.mcpb
