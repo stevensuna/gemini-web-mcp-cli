@@ -20,6 +20,7 @@ import threading
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urljoin
 
 from loguru import logger
 
@@ -77,7 +78,7 @@ _CHROME_IDLE_TIMEOUT_DEFAULT = 120
 # Chrome it launched running for that process.
 _SHUTDOWN_LOCK_WAIT = 30
 
-# XHR interceptor JS — hooks XMLHttpRequest to capture the chat request.
+# Chat interceptor JS — hooks XMLHttpRequest and fetch to capture the chat request.
 # Captures the URL, headers (including BotGuard token set by JS), and body,
 # then aborts the original request so Chrome doesn't send it.
 #
@@ -128,6 +129,34 @@ XHR_INTERCEPTOR_JS = """
             }
         }
         return origSend.call(this, body);
+    };
+
+    // Some accounts now use fetch for the same chat endpoints.
+    const origFetch = window.fetch;
+    window.fetch = async function(input, init) {
+        const request = input instanceof Request ? input : null;
+        const u = request ? request.url : String(input);
+        const method = String(init?.method || request?.method || 'GET').toUpperCase();
+        const stream = u.includes('StreamGenerate');
+        const session = u.includes('/processSession') && method === 'POST';
+        if (!stream && !session) return origFetch.call(this, input, init);
+
+        let body = init?.body;
+        if (body === undefined && request) body = await request.clone().text();
+        if (body instanceof URLSearchParams) body = body.toString();
+        if (session && u.includes('X-HTTP-Session-Id')) {
+            window.__psOpen = u;
+            return origFetch.call(this, input, init);
+        }
+        if (stream || (typeof body === 'string' && body.includes('___data__'))) {
+            if (!window.__cap) {
+                const headers = Object.fromEntries(new Headers(init?.headers ?? request?.headers));
+                window.__cap = {transport: stream ? 'streamgenerate' : 'processSession',
+                                url: stream ? u : window.__psOpen, headers: headers, body: body};
+            }
+            throw new DOMException('Token Factory captured the chat request', 'AbortError');
+        }
+        return origFetch.call(this, input, init);
     };
 })()
 """
@@ -1447,7 +1476,7 @@ class TokenFactory:
         if transport == TRANSPORT_PROCESS_SESSION:
             url = captured["url"]  # absolute channel-open URL
         else:
-            url = "https://gemini.google.com" + captured["url"]
+            url = urljoin(GEMINI_APP_URL, captured["url"])
         logger.debug(f"Token Factory: captured {transport} request")
 
         # Get JS-set headers (model header, tracking headers, etc.)
