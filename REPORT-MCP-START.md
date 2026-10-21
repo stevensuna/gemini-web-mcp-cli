@@ -137,13 +137,18 @@ needed. Other injected service failures are covered offline, not claimed live.
 - `.venv/bin/pytest tests/ -q`: **721 passed, 15 warnings in 8.47s**; no skips.
   Warnings are existing httpx per-request-cookie deprecations.
 - `.venv/bin/ruff check src/ tests/`: passed.
-- `git diff --check`: passed.
+- Source/test diff checks passed. The final staged all-artifact diff check
+  **flagged trailing whitespace in the raw generated `report.txt`**. That file
+  remains byte-for-byte identical to the live report and download; trimming it
+  would invalidate the equality proof. The complete branch diff excluding only
+  that raw report passes `git diff ea3bda2 --check -- .
+  ':(exclude)docs/research/mcp-start/report.txt'`.
 - The archived client initially failed lint on compact imports, one-line
   statements, and long lines. Import fixes and formatting resolved them;
   `ruff check src/ tests/ docs/research/mcp-start/client.py` passed.
 - Initial full run: **721 passed in 8.42s**. Focused tests after readability
   cleanup: **37 passed in 0.55s**. The final full run above includes the extra
-  assertion that the previous target id is discarded. Ruff and diff checks
+  assertion that the previous target id is discarded. Ruff and source/test diff checks
   passed again. Runtime source was unchanged throughout.
 - `uv cache clean gemini-web-mcp-cli` then `uv tool install --force .`: succeeded
   from this checkout as 0.9.7. uv fell back from hardlinks to file copies across
