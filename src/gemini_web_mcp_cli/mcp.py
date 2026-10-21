@@ -5,7 +5,7 @@ Exposes 10 consolidated tools, each with an action parameter:
 - image: generate, download
 - video: generate, status, download
 - music: generate, list_styles, download
-- research: start, status
+- research: start, status, report, download
 - gems: list, create, update, delete
 - limits: check per-feature usage quotas
 - canvas: create, update, export (stub)
@@ -566,28 +566,30 @@ async def research(
     - download: Save the report to a local file
       - output_path (required): Local file path to save the report
     """
-    client = await _get_client()
+    from mcp.server.fastmcp.exceptions import ToolError
+
     from gemini_web_mcp_cli.services.research import ResearchService
 
-    svc = ResearchService(client)
-
-    if action == "start":
-        if not query:
-            return json.dumps({"error": "query is required for start action"})
-        plan = await svc.create_plan(query, model=model)
-        return json.dumps({
-            "text": plan.text,
-            "status": "plan_created",
-            "message": "Research plan created. The research will begin automatically.",
-        })
-
-    elif action == "status":
-        result = await svc.poll_status()
-        return json.dumps(result)
-
-    return json.dumps({
-        "error": f"Unknown action: {action}. Available: start, status, report, download"
-    })
+    try:
+        if action not in ("start", "status", "report", "download"):
+            raise ValueError("Available actions: start, status, report, download")
+        if action == "start" and not query:
+            raise ValueError("query is required for start action")
+        if action == "download" and not output_path:
+            raise ValueError("output_path is required for download action")
+        svc = ResearchService(await _get_client())
+        if action == "start":
+            plan = await svc.create_plan(query, model=model)
+            response = await svc.start()
+            return json.dumps({"text": plan.text, "status": "running",
+                               "conversation_id": response.metadata.cid})
+        if action == "status":
+            return json.dumps(await svc.poll_status())
+        if action == "report":
+            return json.dumps({"status": "completed", "text": await svc.report()})
+        return json.dumps({"path": str(await svc.download(output_path))})
+    except Exception as e:
+        raise ToolError(str(e)) from e
 
 
 # ── Gems tool ───────────────────────────────────────────────────────────────

@@ -1708,7 +1708,7 @@ def music(ctx, prompt, model, output, fmt, style, length, vocals, genre, templat
 @cli.command()
 @click.argument("query")
 @click.option("--model", "-m", default=None,
-              help="Model: pro, flash, thinking (default: flash)")
+              help="Model: pro, flash, thinking (default: browser selection)")
 @click.option("--output", "-o", default=None, help="Save research report to file")
 @click.pass_context
 def research(ctx, query, model, output):
@@ -1725,6 +1725,14 @@ def research(ctx, query, model, output):
             plan = await svc.create_plan(query, model=model)
             if plan.text:
                 console.print(Markdown(plan.text))
+            await svc.start()
+            console.print("[bold]Research running...[/bold]")
+            result = await svc.wait_for_completion()
+            console.print(Markdown(result["text"]))
+            if output:
+                from pathlib import Path
+
+                Path(output).expanduser().write_text(result["text"], encoding="utf-8")
 
     try:
         run_async(_research())
