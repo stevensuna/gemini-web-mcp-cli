@@ -169,6 +169,8 @@ class ResearchService:
             if state.get("status") != "planned":
                 raise ResearchError("No unconfirmed research plan.")
             ws = self._page(state)
+            if self._snapshot(ws).get("cid") != state["cid"]:
+                raise ResearchError("Research conversation is not loaded; nothing sent.")
             state["status"] = "starting"
             self._save(state)
             result = run_js(ws, """(() => {

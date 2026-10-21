@@ -197,3 +197,16 @@ console.log(JSON.stringify(eval(script)));
     snapshot = json.loads(result.stdout)
     assert snapshot["report_ready"] is ready
     assert snapshot["cid"] == "c_abc123"
+
+
+def test_confirmation_rejects_wrong_conversation_before_click(client, monkeypatch):
+    svc = ResearchService(client)
+    svc._save({"version": 1, "cid": "c_123", "status": "planned", "target_id": "page"})
+    monkeypatch.setattr(svc, "_page", lambda state: "ws")
+    monkeypatch.setattr(svc, "_snapshot", lambda ws: {"cid": "c_other"})
+    js = Mock()
+    monkeypatch.setattr("gemini_web_mcp_cli.core.cdp.run_js", js)
+    with pytest.raises(ResearchError, match="nothing sent"):
+        svc._start()
+    js.assert_not_called()
+    assert svc._load()["status"] == "planned"
