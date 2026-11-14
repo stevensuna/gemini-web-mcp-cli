@@ -4,7 +4,9 @@
 
 # gemini-web-mcp-cli
 
-MCP server and CLI for the [Gemini web interface](https://gemini.google.com). Reverse-engineers the Gemini web UI's RPC protocol to provide programmatic access to all Gemini features.
+MCP server and CLI for the [Gemini web interface](https://gemini.google.com). It reverse-engineers the Gemini web UI's RPC protocol to give scripts and AI agents programmatic access to a Gemini web subscription: chat, Deep Research, image, video, and music generation.
+
+This is my working copy of version 0.9.7 by jacob-bd, imported from the PyPI release because the upstream repository is no longer available. I run it on a Mac mini, and I keep it here because I had to fix it to keep it working. The fixes are described below; the usage documentation further down is the upstream 0.9.7 documentation.
 
 ## Features
 
@@ -15,25 +17,29 @@ MCP server and CLI for the [Gemini web interface](https://gemini.google.com). Re
 - **Video generation** via Gemini Omni with orientation (landscape/portrait), model tiers, and templates
 - **Music generation** via Lyria 3.5 with Length/Vocals/Genre controls, 24 templates, and 16 legacy style presets
 - **Deep Research** with multi-source reports
-- **Usage limits** checking with account/profile, per-feature usage %, credits left, and reset time — plus profile flipping when quota runs out
+- **Usage limits** checking with account/profile, per-feature usage %, credits left, and reset time, plus profile flipping when quota runs out
 - **Gems** management (custom system prompts)
 - **Multi-profile** support with cross-product profile sharing (NotebookLM MCP)
 - **MCP server** with 10 consolidated tools for AI agent integration
 - **Skill system** to teach AI tools (Claude Code, Cursor, Codex, etc.) how to use gemcli
-- **Hack Claude** — launch Claude Code powered by Gemini (`gemcli hack claude`)
-- **API server** — local Anthropic-compatible API backed by Gemini
+- **Hack Claude**: launch Claude Code powered by Gemini (`gemcli hack claude`)
+- **API server**: local Anthropic-compatible API backed by Gemini
 - **Diagnostics** (`gemcli doctor`) for installation, auth, and configuration checks
 - **One-command setup** (`gemcli setup add <tool>`) for MCP client configuration
 
-## Vibe Coding Alert
+## What changed in this copy
 
-Full transparency: this project was built by a non-developer using AI coding assistants. If you're an experienced Python developer, you might look at this codebase and wince. That's okay.
+In October 2026, chat and Deep Research broke with a PromptEscaped error. I traced it on the wire: this account's Gemini web UI sends chat requests with fetch, while the package only intercepted XMLHttpRequest. The fixes, all merged to main:
 
-The goal here was to learn — both about building CLI tools in Python and about how modern web applications work under the hood. The code works, but it's very much a learning project, not a polished product.
+- A fetch hook next to the XHR hook, plus URL normalisation, so chat requests are recognised again.
+- Deep Research rebuilt on the real browser: it runs in a dedicated tab on the persistent Chrome daemon, drives the actual Gemini UI, and reads the report panel before reporting completion. An HTTP replay approach was tried first and failed live, so it was dropped.
+- MCP research start verified end to end from fresh server processes, with regression tests added. No production change was needed for that part.
 
-**If you know better, teach us.** PRs, issues, and architectural advice are all welcome. This is open source specifically because human expertise is irreplaceable.
+721 tests pass on main. The fix reports in REPORT.md and REPORT-DR.md carry the wire evidence and the verification runs.
 
-> **Educational & Research Use:** This project reverse-engineers the Gemini web interface protocol for educational and research purposes. It is **not affiliated with, endorsed by, or sponsored by Google**. Use of this tool is at your own risk, and you are responsible for compliance with Google's [Terms of Service](https://policies.google.com/terms). The authors assume no liability for how this software is used.
+Google changes the Gemini web UI without warning, and this tool breaks when it does. The fixes above are from October 2026. If chat or research fails after a UI change, the wire evidence in docs/research and the fix reports are the starting point.
+
+> Educational and research use: this project reverse-engineers the Gemini web interface protocol. It is not affiliated with, endorsed by, or sponsored by Google. Use of this tool is at your own risk, and you are responsible for compliance with Google's [Terms of Service](https://policies.google.com/terms). The authors assume no liability for how this software is used.
 
 ## Installation
 
@@ -48,7 +54,7 @@ pip install gemini-web-mcp-cli
 pipx install gemini-web-mcp-cli
 
 # Development
-git clone https://github.com/jacob-bd/gemini-web-mcp-cli
+git clone https://github.com/stevensuna/gemini-web-mcp-cli
 cd gemini-web-mcp-cli
 uv pip install -e ".[dev]"
 ```
@@ -193,7 +199,7 @@ gemcli -p work video "..." -o clip.mp4 # Run any command as that profile
 gemcli chat "hello" --profile work     # Use specific profile
 ```
 
-Cross-product profile sharing: gemcli automatically discovers profiles from NotebookLM MCP (`~/.notebooklm-mcp-cli/profiles/`). No copying — profiles are read live.
+Cross-product profile sharing: gemcli automatically discovers profiles from NotebookLM MCP (`~/.notebooklm-mcp-cli/profiles/`). No copying. Profiles are read live.
 
 Environment variable: `GEMCLI_PROFILE=work` overrides the active profile.
 
@@ -287,7 +293,7 @@ The daemon runs headless, survives terminal close, and is automatically detected
 
 Google sessions stay alive while the browser that owns them keeps using them;
 profiles you don't touch for a few days go stale. The keep-alive renews every
-logged-in profile through **its own** Chrome and saves the fresh cookies — it
+logged-in profile through **its own** Chrome and saves the fresh cookies. It
 never copies a Chrome profile or injects cookies, which is what gets sessions
 revoked.
 
@@ -312,7 +318,7 @@ Chrome, so nothing is sent to Gemini). `keepalive status` shows
 that uploads and media need is broken; `keepalive run` exits `1` then.
 
 **Exit codes** (all commands): `0` success, `1` failure, `3` authentication
-needed — so scripts can do `gemcli music "..." || notify-me`.
+needed, so scripts can do `gemcli music "..." || notify-me`.
 
 Never schedule `gemcli login` (cron/LaunchAgent/pipeline): it stops the
 profile's Chrome daemon and opens a sign-in window nobody sees.
@@ -355,7 +361,7 @@ The doctor command checks:
 - Configuration (config directory, profiles, NotebookLM cross-product)
 - Authentication (saved cookies and tokens for the profile)
 - With `--deep`: BotGuard token capture in the profile's Chrome and a tiny
-  upload — the path uploads, images, video, music and Pro depend on. Sends
+  upload, the path uploads, images, video, music and Pro depend on. Sends
   nothing to Gemini chat; exits 1 on failure.
 - MCP clients (configuration status across all supported tools)
 - Skills (installation status)
@@ -400,11 +406,11 @@ All interfaces (CLI, MCP, future API) consume the same service layer. When Gemin
 ## Development
 
 ```bash
-git clone https://github.com/jacob-bd/gemini-web-mcp-cli
+git clone https://github.com/stevensuna/gemini-web-mcp-cli
 cd gemini-web-mcp-cli
 uv venv && source .venv/bin/activate
 uv pip install -e ".[dev]"
-pytest tests/ -v                  # 568 tests
+pytest tests/ -v                  # 721 tests
 ruff check src/ tests/            # Lint
 ```
 
